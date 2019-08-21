@@ -95,8 +95,8 @@ rwcheck写入的数据是从```/dev/urandom```获取的随机数据，确保了�
 rwcheck是这么做的：
 
 1. 在每一次循环开始之前，从```/dev/urandom```读取一定大小的随机数据到 **rwcheck.org**
-* **rwcheck.org** 作为数据源，从 **rwcheck.org** 循环读，获取足够数据写入到测试文件
-* 一次测试循环后，删除旧的 **rwcheck.org** 文件，以便下一次循环创建新的随机数据源
+2. **rwcheck.org** 作为数据源，从 **rwcheck.org** 循环读，获取足够数据写入到测试文件
+3. 一次测试循环后，删除旧的 **rwcheck.org** 文件，以便下一次循环创建新的随机数据源
 
 由于**一旦出错rwcheck会即刻退出以保留现场**，因此可以通过对比 **rwcheck.org** 与出错文件，分析错误情况
 

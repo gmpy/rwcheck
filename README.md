@@ -78,7 +78,7 @@ It means that:
 
 Each cycle consists of 3 steps:
 
-1. Write: Press [Different Mode](#TestMode) to create multiple files, create a loop until the space usage reaches the set percentage
+1. Write: Press [Different Mode](#test-mode) to create multiple files, create a loop until the space usage reaches the set percentage
 2. Check: Read each file, check the file CRC value *(Allow the last file CRC check value is wrong)*
 3. Delete: delete the test file
 
@@ -97,8 +97,8 @@ The data written by rwcheck is random data obtained from ```/dev/urandom```, ens
 Rwcheck does this:
 
 1. Read a random amount of random data from ```/dev/urandom``` to **rwcheck.org** before each loop starts.
-* **rwcheck.org** as a data source, loop reading from **rwcheck.org** to get enough data to write to the test file
-* After the test loop, delete the old **rwcheck.org** file so that the next loop creates a new random data source
+2. **rwcheck.org** as a data source, loop reading from **rwcheck.org** to get enough data to write to the test file
+3. After the test loop, delete the old **rwcheck.org** file so that the next loop creates a new random data source
 
 Since **once the error rwcheck will exit immediately to retain the live**, you can analyze the error by comparing **rwcheck.org** with the error file.
 
