@@ -2,6 +2,8 @@
 
 A tool to do read/write test for embedded devices.
 
+[显示中文介绍(Chinese README)](https://github.com/gmpy/rwcheck/blob/master/README.zh.md)
+
 ## What's rwcheck
 
 As it's name, rwcheck is a tool to do read/write check.  Where do it work? When do it work? And how do it work?
@@ -10,7 +12,7 @@ rwcheck is designed for embedded devices, to take a storage smoke test. Make sur
 
 It has the following features:
 
-1. Multiple test modes, covering test files of various sizes
+* Multiple test modes, covering test files of various sizes
 * Read and write random data, covering various data combinations
 * CRC check data, the error immediately exits and retains the problem site
 * Support reading and writing power failure, verify historical data after restart
@@ -76,7 +78,7 @@ It means that:
 
 Each cycle consists of 3 steps:
 
-1. Write: Press [Different Mode](#Test Mode) to create multiple files, create a loop until the space usage reaches the set percentage
+1. Write: Press [Different Mode](#TestMode) to create multiple files, create a loop until the space usage reaches the set percentage
 2. Check: Read each file, check the file CRC value *(Allow the last file CRC check value is wrong)*
 3. Delete: delete the test file
 
