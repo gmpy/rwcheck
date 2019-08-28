@@ -347,6 +347,9 @@ int init_orgin_file(struct rwtask *task)
 	if (task->set_org)
 		return 0;
 
+	if (is_existed(task->org))
+		return 0;
+
 	/* create orgin file */
 	return copy_file(RANDOM_DATA, task->org, DEFAULT_ORG_SIZE, 4 * KB);
 }
