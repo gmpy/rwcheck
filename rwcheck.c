@@ -71,6 +71,7 @@ struct rwtask {
 	int jobs;
 	int percent;
 	unsigned int times;
+	unsigned int count;
 
 	struct size_unit sz_begin;
 	struct size_unit sz_end;
@@ -566,8 +567,10 @@ int do_check(struct rwtask *task)
 	while (1) {
 		for (job = 0; job < task->jobs; job++) {
 			testfile(task, file, 128, num, job);
-			if (!is_file(file))
+			if (!is_file(file)) {
+				task->count = num;
 				return 0;
+			}
 
 			INFO("\tcheck\t: %s ... ", file);
 
@@ -595,11 +598,11 @@ int do_check(struct rwtask *task)
 int do_remove(struct rwtask *task)
 {
 	struct sys_info *sys = &task->sys;
-	int num = 0, jobs;
+	int num, jobs;
 	char file[100];
 
 	INFO("\t--- REMOVE ---\n");
-	while (1) {
+	for (num = task->count - 1; num >= 0; num--) {
 		for (jobs = 0; jobs < task->jobs; jobs++) {
 			testfile(task, file, 100, num, jobs);
 			if (!is_existed(file))
@@ -612,7 +615,6 @@ int do_remove(struct rwtask *task)
 			}
 			INFO("OK\n");
 		}
-		num++;
 	}
 
 out:
