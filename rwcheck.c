@@ -333,7 +333,7 @@ void print_head(struct rwtask *task)
 		INFO("\tset file end size to %s\n", task->sz_end.str);
 	}
 	INFO("\tset times to %u\n", task->times);
-	INFO("\tset max percent of total space to %u%%\n", task->percent);
+	INFO("\tset max percent of total space to %d%%\n", task->percent);
 	INFO("\tset buf size to %s\n", task->sz_buf.str);
 	INFO("\tset check diretory as %s\n", task->dir);
 	INFO("\tset orgin file as %s\n", task->org);
